@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./home.scss";
 import logo from "../../../src/assets/images/logo-m.svg";
 import AnimateL from "../animate/AnimateL";
+import { Link } from "react-router-dom";
 function Home() {
   const hi = "Hi,".split("");
   const I = "I'm".split("");
@@ -70,7 +71,9 @@ function Home() {
           />
         </h1>
         <p>Full Stack Developer / Freelancer </p>
-        <button>CONTACT ME</button>
+        <Link to="/contact">
+          <button>CONTACT ME</button>
+        </Link>
       </div>
       <div className="home_logo">
         <img className="main_logo" src={logo} alt="" />

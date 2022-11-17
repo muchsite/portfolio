@@ -67,6 +67,7 @@
   @include breack_down(large) {
     transform: translateX(0);
     padding-bottom: 5rem;
+    min-height: 20rem;
   }
 }
 .spiner {
