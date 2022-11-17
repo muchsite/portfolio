@@ -20,15 +20,13 @@ function Contact() {
         form.current,
         process.env.REACT_APP_PYBLIC
       )
-      .then(
-        (result) => {
-          alert("Message was ccessfuly sent!");
-          window.location.reload(false);
-        },
-        (error) => {
-          alert("Something went wrong, please try again!");
-        }
-      );
+      .then((result) => {
+        alert("Message was ccessfuly sent!");
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        alert("Something went wrong, please try again!");
+      });
   };
   useState(() => {
     setTimeout(() => {
