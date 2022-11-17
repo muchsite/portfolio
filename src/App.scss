@@ -1,0 +1,20 @@
+@use "./scss/vars" as *;
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets/fonts/helveticaneue.woff") format("woff");
+}
+@font-face {
+  font-family: "La Bella Aurore";
+  src: url("./assets/fonts/LaBelleAurore.woff2") format("woff2");
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue";
+}
+body {
+  background-color: $background;
+}

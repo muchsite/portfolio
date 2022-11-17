@@ -1,0 +1,133 @@
+@use "../../scss/vars" as *;
+@use "../../scss/media" as *;
+.skills_cont {
+  margin-left: 70px;
+  display: flex;
+  @include breack_down(large) {
+    flex-direction: column;
+    align-items: center;
+  }
+  justify-content: space-between;
+  @include breack_down(large) {
+    margin-left: 0;
+  }
+  color: white;
+  margin-top: 10vw;
+  padding: 0 10rem 0 7rem;
+  @include breack_down(large) {
+    padding: 0 0 0 3rem;
+    margin-top: 8rem;
+  }
+}
+.skills_text {
+  max-width: 40vw;
+  @include breack_down(large) {
+    max-width: 80vw;
+    margin-bottom: 5rem;
+  }
+  h1 {
+    position: relative;
+    margin-bottom: 5rem;
+    &::after {
+      position: absolute;
+      content: "</H1>";
+      color: $green;
+      font-family: "La Bella Aurore";
+      font-size: 1rem;
+      font-weight: 100;
+      opacity: 0.6;
+      bottom: -2rem;
+      left: -3rem;
+      @include breack_down(medium) {
+        left: -2rem;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: "<H1>";
+      color: $green;
+      font-family: "La Bella Aurore";
+      font-size: 1rem;
+      font-weight: 100;
+      opacity: 0.6;
+      top: -2rem;
+      left: -3rem;
+      @include breack_down(medium) {
+        left: -2rem;
+      }
+    }
+  }
+  p {
+    color: gray;
+    margin-bottom: 1rem;
+  }
+}
+.skills_logo_cont {
+  transform: translateX(-10rem);
+  @include breack_down(large) {
+    transform: translateX(0);
+    padding-bottom: 5rem;
+  }
+}
+.spiner {
+  animation-name: spincube;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 12s;
+  transform-style: preserve-3d;
+  transform-origin: 100px 100px 0;
+  margin-left: calc(50% - 100px);
+  div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px 0 lightyellow;
+  }
+}
+.face1 {
+  transform: translateZ(100px);
+}
+.face2 {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.face3 {
+  transform: rotateY(90deg) rotateX(90deg) translateZ(100px);
+}
+.face4 {
+  transform: rotateY(180deg) rotateZ(90deg) translateZ(100px);
+}
+.face5 {
+  transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px);
+}
+.face6 {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+@keyframes spincube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  16% {
+    transform: rotateY(-90deg) rotateZ(90deg);
+  }
+  33% {
+    transform: rotateY(-90deg) rotateX(90deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotateZ(90deg);
+  }
+  66% {
+    transform: rotateY(-270deg) rotateX(90deg);
+  }
+  83% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}

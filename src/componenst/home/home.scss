@@ -1,0 +1,202 @@
+@use "../../scss/vars" as *;
+@use "../../scss/media" as *;
+.home_cont {
+  margin-left: 70px;
+  @include breack_down(large) {
+    margin-left: 0;
+  }
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10vw;
+  padding: 0 10rem 0 7rem;
+  @include breack_down(large) {
+    padding: 0 0 0 3rem;
+    margin-top: 8rem;
+  }
+}
+.home_text {
+  min-width: fit-content;
+  .logo_span {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 2.7rem;
+    @include breack_down(medium) {
+      margin-right: 1.4rem;
+      margin-left: 17px;
+    }
+  }
+  .home_logo_text {
+    height: 3.4rem;
+    width: 3.4rem;
+    top: 0;
+    position: absolute;
+    @include breack_down(medium) {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+  .logo_top_animation {
+    animation: topp 1.5s cubic-bezier(0, 0, 0, 2);
+  }
+  .logo_bottom {
+    top: 0.7rem;
+    left: -9px;
+    @include breack_down(medium) {
+      top: 1rem;
+      left: -15px;
+    }
+  }
+  .logo_top {
+    left: -5px;
+    @include breack_down(medium) {
+      top: 0.4rem;
+      left: -13px;
+    }
+  }
+  .logo_bottom_animation {
+    animation: bottomm 1.5s cubic-bezier(0, 0, 0, 2);
+  }
+  h1 {
+    @include breack_down(medium) {
+      font-size: 2.5rem;
+    }
+    font-size: 3rem;
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+    &::after {
+      position: absolute;
+      content: "</H1>";
+      color: $green;
+      font-family: "La Bella Aurore";
+      font-size: 1rem;
+      font-weight: 100;
+      opacity: 0.6;
+      bottom: -1rem;
+      left: -3rem;
+      @include breack_down(medium) {
+        left: -2rem;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: "<H1>";
+      color: $green;
+      font-family: "La Bella Aurore";
+      font-size: 1rem;
+      font-weight: 100;
+      opacity: 0.6;
+      top: -1rem;
+      left: -3rem;
+      @include breack_down(medium) {
+        left: -2rem;
+      }
+    }
+  }
+  p {
+    color: gray;
+    margin: 2rem 0 3rem 0;
+    @include breack_down(medium) {
+      left: -2rem;
+    }
+  }
+  button {
+    border: 1px solid $green;
+    padding: 1rem 3rem;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.6s ease-in-out;
+    @include breack_down(medium) {
+      padding: 0.5rem 1.5rem;
+    }
+    &:hover {
+      background: $green;
+      color: $dark-green;
+      animation: pulse 1s;
+    }
+  }
+}
+.home_logo {
+  position: relative;
+  @include breack_down(large) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.3;
+  }
+  @include breack_down(medium) {
+    top: auto;
+  }
+}
+.main_logo {
+  @include breack_down(large) {
+    width: 80vw;
+    transform: rotate(-20deg) translate(0, 0);
+  }
+  width: 40vw;
+  transform: rotate(-20deg) translate(5rem, -5rem);
+  opacity: 0;
+  animation: opacity1 1s 2s ease-in;
+  animation-fill-mode: forwards;
+}
+.main_logo_out {
+  @include breack_down(large) {
+    width: 80vw;
+    transform: rotate(-20deg) translate(0, 0);
+  }
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 40vw;
+  transform: rotate(-20deg) translate(5rem, -5rem);
+  stroke: $dark-green;
+  stroke-width: 4px;
+  stroke-dasharray: 1050;
+  stroke-dashoffset: 1050;
+  animation: draw-stoke 2s forwards, opacity0 forwards 0.1s 2s;
+}
+
+@keyframes topp {
+  0% {
+    top: -10rem;
+    left: 9rem;
+  }
+  100% {
+    top: 0;
+    left: -5px;
+  }
+}
+@keyframes bottomm {
+  0% {
+    top: 10rem;
+    left: -9rem;
+  }
+  100% {
+    top: 0.7rem;
+    left: -9px;
+  }
+}
+@keyframes draw-stoke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes opacity1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity0 {
+  100% {
+    opacity: 0;
+  }
+}

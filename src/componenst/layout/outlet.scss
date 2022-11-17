@@ -1,0 +1,26 @@
+@use "../../scss/vars" as *;
+@use "../../scss/media" as *;
+.out_top {
+  position: absolute;
+  top: 50px;
+  left: 90px;
+  color: $green;
+  font-family: "La Bella Aurore";
+  opacity: 0.5;
+  @include breack_down(large) {
+    left: 0;
+    top: 100px;
+  }
+}
+.out_bot {
+  position: absolute;
+  left: 90px;
+  bottom: 50px;
+  color: $green;
+  font-family: "La Bella Aurore";
+  opacity: 0.5;
+  @include breack_down(large) {
+    left: 0;
+    bottom: 150px;
+  }
+}

@@ -1,0 +1,49 @@
+@use "../../scss/vars" as *;
+
+.animate-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: bounceIn 1s 1s;
+  animation-fill-mode: forwards;
+  min-width: 10px;
+}
+.animate-letter-hover {
+  display: inline-block;
+  min-width: 10px;
+  &:hover {
+    animation: rubberBand 1s;
+    color: $green;
+  }
+}
+@keyframes diss {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.about_animate {
+  display: inline-block;
+  opacity: 0;
+  animation: bounceIn 1s 1s;
+  animation-fill-mode: forwards;
+  min-width: 10px;
+  color: $green;
+}
+.about_bounce_class {
+  cursor: pointer;
+  color: $green;
+  display: inline-block;
+  min-width: 10px;
+  &:hover {
+    animation: rubberBand 1s;
+    color: white;
+  }
+}
+
+@for $i from 1 through 40 {
+  ._#{$i} {
+    animation-delay: #{$i / 10}s;
+  }
+}
