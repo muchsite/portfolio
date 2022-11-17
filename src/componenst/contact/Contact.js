@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./contact.scss";
-
+import emailJs from "@emailjs/browser";
 import AnimateL from "../animate/AnimateL";
-
+// import env from "dotenv";
 function Contact() {
   const contArr = "Cntact Me".split("");
   const [letClass, setLetClass] = useState("about_animate");
@@ -10,7 +10,26 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
-
+  const form = useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailJs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE,
+        form.current,
+        process.env.REACT_APP_PYBLIC
+      )
+      .then(
+        (result) => {
+          alert("Message was ccessfuly sent!");
+          window.location.reload(false);
+        },
+        (error) => {
+          alert("Something went wrong, please try again!");
+        }
+      );
+  };
   useState(() => {
     setTimeout(() => {
       setLetClass("about_bounce_class");
@@ -31,11 +50,12 @@ function Contact() {
           </p>
         </div>
         <div className="contact_input">
-          <form action="">
+          <form action="" onSubmit={handleSubmit} ref={form}>
             <div className="input_div">
               <input
                 type="text"
                 placeholder="Name"
+                name="Name"
                 className="name_input"
                 value={name || ""}
                 onChange={(e) => setName(e.currentTarget.value)}
@@ -43,6 +63,7 @@ function Contact() {
               <input
                 type="text"
                 placeholder="Email"
+                name="Email"
                 className="name_input"
                 value={email || ""}
                 onChange={(e) => setEmail(e.currentTarget.value)}
@@ -51,12 +72,13 @@ function Contact() {
             <input
               type="text"
               placeholder="Subject"
+              name="Subject"
               className="subject_input"
               value={subject || ""}
               onChange={(e) => setSubject(e.currentTarget.value)}
             />
             <textarea
-              name=""
+              name="message"
               id=""
               cols="30"
               rows="10"
@@ -64,7 +86,9 @@ function Contact() {
               value={content || ""}
               onChange={(e) => setContent(e.currentTarget.value)}
             ></textarea>
-            <button className="contact_btn">Send</button>
+            <button className="contact_btn" type="submit">
+              Send
+            </button>
           </form>
         </div>
       </div>
