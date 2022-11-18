@@ -11,8 +11,20 @@ function Contact() {
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
   const form = useRef();
+
+  const test = () => {
+    if (
+      name.length > 1 &&
+      email.length > 1 &&
+      subject.length > 1 &&
+      content.length > 1
+    ) {
+      console.log({ name, email, subject, content });
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+
     emailJs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
@@ -20,13 +32,15 @@ function Contact() {
         form.current,
         process.env.REACT_APP_PYBLIC
       )
-      .then((result) => {
-        alert("Message was ccessfuly sent!");
-        window.location.reload(false);
-      })
-      .catch((error) => {
-        alert("Something went wrong, please try again!");
-      });
+      .then(
+        (result) => {
+          alert("Message was ccessfuly sent!");
+          window.location.reload(false);
+        },
+        (error) => {
+          alert("Something went wrong, please try again!");
+        }
+      );
   };
   useState(() => {
     setTimeout(() => {
@@ -49,45 +63,45 @@ function Contact() {
         </div>
         <div className="contact_input">
           <form action="" onSubmit={handleSubmit} ref={form}>
-            <div className="input_div">
-              <input
-                type="text"
-                placeholder="Name"
-                name="Name"
-                className="name_input"
-                value={name || ""}
-                onChange={(e) => setName(e.currentTarget.value)}
-              />
-              <input
-                type="text"
-                placeholder="Email"
-                name="Email"
-                className="name_input"
-                value={email || ""}
-                onChange={(e) => setEmail(e.currentTarget.value)}
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              name="Subject"
-              className="subject_input"
-              value={subject || ""}
-              onChange={(e) => setSubject(e.currentTarget.value)}
-            />
-            <textarea
-              name="message"
-              id=""
-              cols="30"
-              rows="10"
-              className="text_input"
-              value={content || ""}
-              onChange={(e) => setContent(e.currentTarget.value)}
-            ></textarea>
-            <button className="contact_btn" type="submit">
-              Send
-            </button>
+            <ul>
+              <div className="half_cont">
+                <li className="half">
+                  <input type="text" placeholder="name" name="name" required />
+                </li>
+                <li className="half">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    required
+                  />
+                </li>
+              </div>
+              <li>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="subject"
+                  className="subject_input"
+                  required
+                />
+              </li>
+              <li>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  className="text_input"
+                  required
+                ></textarea>
+              </li>
+              <li>
+                <button className="contact_btn" type="submit">
+                  Send
+                </button>
+              </li>
+            </ul>
           </form>
+          {/* <button onClick={test}> test button</button> */}
         </div>
       </div>
     </div>
