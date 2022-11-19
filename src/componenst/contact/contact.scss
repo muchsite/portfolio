@@ -30,7 +30,7 @@
     margin-bottom: 5rem;
     &::after {
       position: absolute;
-      content: "</H1>";
+      content: "</H2>";
       color: $green;
       font-family: "La Bella Aurore";
       font-size: 1rem;
@@ -44,7 +44,7 @@
     }
     &::before {
       position: absolute;
-      content: "<H1>";
+      content: "<H2>";
       color: $green;
       font-family: "La Bella Aurore";
       font-size: 1rem;
@@ -71,6 +71,9 @@ ul {
     list-style: none;
     display: block;
     width: 100%;
+    opacity: 0;
+    animation: fadeInUp 1s;
+    animation-fill-mode: forwards;
     textarea {
       padding: 12px;
       width: 100% !important;
@@ -79,6 +82,9 @@ ul {
       background: $dark-green;
       color: #fff;
       border: none;
+      &:focus {
+        outline: 1px solid $green;
+      }
     }
     input {
       width: 100%;
@@ -89,6 +95,12 @@ ul {
       border: none;
       margin-bottom: 1rem;
       padding: 7px;
+      &:focus {
+        outline: 1px solid $green;
+      }
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px rgba(85, 252, 59, 0.674) inset !important;
+      }
     }
   }
 }
@@ -120,5 +132,24 @@ ul {
     background: $green;
     color: $dark-green;
     animation: pulse 1s;
+  }
+}
+#Group5 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: rotateLetter 2.5s infinite linear;
+}
+@keyframes rotateLetter {
+  0% {
+    transform: rotate(25deg);
+  }
+  25% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(25deg);
   }
 }

@@ -27,7 +27,7 @@
     margin-bottom: 3rem;
     &::after {
       position: absolute;
-      content: "</H1>";
+      content: "</H2>";
       color: $green;
       font-family: "La Bella Aurore";
       font-size: 1rem;
@@ -41,7 +41,7 @@
     }
     &::before {
       position: absolute;
-      content: "<H1>";
+      content: "<H2>";
       color: $green;
       font-family: "La Bella Aurore";
       font-size: 1rem;

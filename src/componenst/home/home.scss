@@ -38,6 +38,15 @@
   }
   .logo_top_animation {
     animation: topp 1.5s cubic-bezier(0, 0, 0, 2);
+    @include breack_down(medium) {
+      animation: topp-small 1.5s cubic-bezier(0, 0, 0, 2);
+    }
+  }
+  .logo_bottom_animation {
+    animation: bottomm 1.5s cubic-bezier(0, 0, 0, 2);
+    @include breack_down(medium) {
+      animation: bottomm-small 1.5s cubic-bezier(0, 0, 0, 2);
+    }
   }
   .logo_bottom {
     top: 0.7rem;
@@ -53,9 +62,6 @@
       top: 0.4rem;
       left: -13px;
     }
-  }
-  .logo_bottom_animation {
-    animation: bottomm 1.5s cubic-bezier(0, 0, 0, 2);
   }
   h1 {
     @include breack_down(medium) {
@@ -182,6 +188,27 @@
     left: -9px;
   }
 }
+@keyframes topp-small {
+  0% {
+    top: -10rem;
+    left: 9rem;
+  }
+  100% {
+    top: 0.4rem;
+    left: -13px;
+  }
+}
+@keyframes bottomm-small {
+  0% {
+    top: 10rem;
+    left: -9rem;
+  }
+  100% {
+    top: 1rem;
+    left: -15px;
+  }
+}
+
 @keyframes draw-stoke {
   100% {
     stroke-dashoffset: 0;
