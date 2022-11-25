@@ -58,8 +58,33 @@
     }
   }
   p {
-    color: gray;
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
+    cursor: default;
+    color: #fff;
+    line-height: 18px;
+    font-weight: 300;
+    font-family: sans-serif;
+    span {
+      color: $green;
+    }
+  }
+}
+.p_cont_skills {
+  overflow: hidden;
+  > :nth-child(1) {
+    opacity: 0;
+    animation: backInDown 1s 1s;
+    animation-fill-mode: forwards;
+  }
+  > :nth-child(2) {
+    opacity: 0;
+    animation: backInDown 1s 2s;
+    animation-fill-mode: forwards;
+  }
+  > :nth-child(3) {
+    opacity: 0;
+    animation: backInDown 1s 3s;
+    animation-fill-mode: forwards;
   }
 }
 .skills_logo_cont {

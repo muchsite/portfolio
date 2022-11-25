@@ -17,21 +17,25 @@ function About() {
         <h1>
           <AnimateL arr={abMe} lclass={letClass} ind={1} />
         </h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero quae
-          expedita soluta. Aliquid quibusdam voluptas ducimus asperiores at
-          laudantium. Minus distinctio sit qui et quibusdam ab sed molestiae
-          laudantium officia.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          dicta eos voluptatum esse, numquam quis.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
-          perspiciatis reprehenderit facere inventore laborum officia id,
-          temporibus et earum vero quasi! Consequuntur ipsa assumenda numquam?
-        </p>
+        <div className="p_cont">
+          <p>
+            I'm a self-taught <span>Full-Stack Web Developer</span>. Also, I
+            have a BA in <span>Macroeconomics</span> and a Master's Degree in
+            <span> Digital Economics</span>. After I graduated from university,
+            I realized that digital space was going to be the most important
+            thing in my lifetime. So, I taught myself how to code.
+          </p>
+          <p>
+            As I mentioned, I am an economist, so I do not have a lot of
+            experience with coding. It has been 1.5 years since I started
+            writing code. But I am good at solving problems, and I am
+            results-oriented. So, most likely, I can do everything you want!
+          </p>
+          <p>
+            I'm quietly confident, naturally curious, and perpetually working on
+            improving my skills and knowledge.
+          </p>
+        </div>
       </div>
       <div className="about_logo_cont">
         <svg

@@ -55,10 +55,8 @@ function Contact() {
             <AnimateL arr={contArr} lclass={letClass} ind={1} />
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            odit, aliquid natus sequi quae eos consequuntur aut facere.
-            Accusamus vitae inventore sed cupiditate natus nulla aspernatur eius
-            quasi beatae nemo.
+            I am interested in freelance opportunities. You can contact me by
+            using the below form or by email at muchsite3@gmail.com.
           </p>
         </div>
         <div className="contact_input">

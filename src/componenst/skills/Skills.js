@@ -25,21 +25,27 @@ function Skills() {
         <h1>
           <AnimateL arr={abMe} lclass={letClass} ind={1} />
         </h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero quae
-          expedita soluta. Aliquid quibusdam voluptas ducimus asperiores at
-          laudantium. Minus distinctio sit qui et quibusdam ab sed molestiae
-          laudantium officia.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          dicta eos voluptatum esse, numquam quis.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
-          perspiciatis reprehenderit facere inventore laborum officia id,
-          temporibus et earum vero quasi! Consequuntur ipsa assumenda numquam?
-        </p>
+        <div className="p_cont_skills">
+          <p>
+            For front-end development, I use technologies like{" "}
+            <span>HTML5</span>,<span> CSS</span>,<span> Sass</span>,
+            <span> JavaScript</span>,<span> React</span>,<span> Next Js</span>,
+            etc.
+          </p>
+          <p>
+            For back-end development, I use technologies like{" "}
+            <span>Node Js</span>,<span> Express Js</span>,<span> Mongodb</span>,
+            <span> Mongoose</span>,<span> Firebase</span>, etc.
+          </p>
+          <p>
+            I am not a designer, but I have a good sense of aesthetics and
+            experience in responsive, mobile-first design. I put a special
+            effort into optimizing my code and providing the best user
+            experience. I would love to give you any kind of support after the
+            project's completion. I guarantee a commitment during work on your
+            project.
+          </p>
+        </div>
       </div>
       <div className="skills_logo_cont">
         <div className="spiner">
