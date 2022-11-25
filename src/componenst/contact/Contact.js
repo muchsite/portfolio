@@ -64,13 +64,13 @@ function Contact() {
             <ul>
               <div className="half_cont">
                 <li className="half">
-                  <input type="text" placeholder="name" name="name" required />
+                  <input type="text" placeholder="Name" name="name" required />
                 </li>
                 <li className="half">
                   <input
                     type="email"
                     name="email"
-                    placeholder="email"
+                    placeholder="Email"
                     required
                   />
                 </li>
@@ -79,7 +79,7 @@ function Contact() {
                 <input
                   type="text"
                   name="subject"
-                  placeholder="subject"
+                  placeholder="Subject"
                   className="subject_input"
                   required
                 />
