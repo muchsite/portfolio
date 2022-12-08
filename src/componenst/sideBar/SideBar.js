@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink as a } from "react-router-dom";
 import { faEnvelope, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.scss";
 import Hamburger from "./Hamburger";
 import { faBrain } from "@fortawesome/free-solid-svg-icons";
-function SideBar() {
+function SideBar({ position }) {
   const [open, setOpen] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute("href").slice(1);
+    const position = document.getElementById(id).offsetTop - 70;
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+  };
   return (
     <div className="side_container">
-      <Link to="/">
+      <a href="#home">
         <svg
           className="side_logo"
           viewBox="0 0 312 224"
@@ -25,7 +34,7 @@ function SideBar() {
             fill="#0A3300"
           />
         </svg>
-      </Link>
+      </a>
       <div className="side_links" onClick={() => setOpen(!open)}>
         <div className="dn_for_medium">
           <div className={`hamburger_icon ${open && "tranforme_ham"}`}>
@@ -34,40 +43,42 @@ function SideBar() {
             <div className="line _3"></div>
           </div>
           <div className={`hamburger_link_cont ${open && `tranform`} `}>
-            <Hamburger />
+            <Hamburger position={position} />
           </div>
         </div>
         <nav className="dn_for_small">
-          <NavLink
-            to="/"
+          <a
+            href="#home"
             id="nav-home"
-            className={({ isActive }) => (isActive ? "active_nav_link" : "")}
+            className={`${position === "home" && "active_nav_link"}`}
+            onClick={(e) => handleClick(e)}
           >
             <FontAwesomeIcon icon={faHome} />
-          </NavLink>
-          <NavLink
-            to="/about"
+          </a>
+          <a
+            href="#about"
             id="nav-about"
-            className={({ isActive }) => (isActive ? "active_nav_link" : "")}
+            className={`${position === "about" && "active_nav_link"}`}
+            onClick={(e) => handleClick(e)}
           >
             <FontAwesomeIcon icon={faUser} />
-          </NavLink>
-          <NavLink
-            end
-            to="/skills"
+          </a>
+          <a
+            href="#skills"
             id="nav-skill"
-            className={({ isActive }) => (isActive ? "active_nav_link" : "")}
+            className={`${position === "skills" && "active_nav_link"}`}
+            onClick={(e) => handleClick(e)}
           >
             <FontAwesomeIcon icon={faBrain} />
-          </NavLink>
-          <NavLink
-            end
-            to="/contact"
+          </a>
+          <a
+            href="#contact"
             id="nav-contact"
-            className={({ isActive }) => (isActive ? "active_nav_link" : "")}
+            className={`${position === "contact" && "active_nav_link"}`}
+            onClick={(e) => handleClick(e)}
           >
             <FontAwesomeIcon icon={faEnvelope} />
-          </NavLink>
+          </a>
         </nav>
       </div>
     </div>

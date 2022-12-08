@@ -2,17 +2,17 @@
 @use "../../scss/media" as *;
 .home_cont {
   margin-left: 70px;
-  @include breack_down(large) {
-    margin-left: 0;
-  }
   color: #fff;
   display: flex;
   justify-content: space-between;
   margin-top: 10vw;
   padding: 0 10rem 0 7rem;
+  margin-top: 10rem;
+  height: 30vh;
+  align-items: flex-start;
   @include breack_down(large) {
+    margin-left: 0;
     padding: 0 0 0 3rem;
-    margin-top: 8rem;
   }
 }
 .home_text {
@@ -107,7 +107,7 @@
       left: -2rem;
     }
   }
-  button {
+  a {
     border: 1px solid $green;
     padding: 1rem 3rem;
     background-color: transparent;
@@ -115,6 +115,7 @@
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
     transition: 0.6s ease-in-out;
     @include breack_down(medium) {
       padding: 0.5rem 1.5rem;
@@ -127,15 +128,12 @@
   }
 }
 .home_logo {
-  position: relative;
-  @include breack_down(large) {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 0.3;
-  }
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.3;
   @include breack_down(medium) {
     top: auto;
   }
@@ -145,8 +143,8 @@
     width: 80vw;
     transform: rotate(-20deg) translate(0, 0);
   }
-  width: 40vw;
-  transform: rotate(-20deg) translate(5rem, -5rem);
+  width: 50vw;
+  transform: rotate(-20deg) translate(10rem, 0);
   opacity: 0;
   animation: opacity1 1s 2s ease-in;
   animation-fill-mode: forwards;
@@ -159,8 +157,8 @@
   top: 0;
   left: 0;
   position: absolute;
-  width: 40vw;
-  transform: rotate(-20deg) translate(5rem, -5rem);
+  width: 50vw;
+  transform: rotate(-20deg) translate(10rem, 0);
   stroke: $dark-green;
   stroke-width: 4px;
   stroke-dasharray: 1050;

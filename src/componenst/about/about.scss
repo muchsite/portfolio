@@ -8,6 +8,7 @@
     margin-left: 0;
     flex-direction: column;
     align-items: center;
+    margin-top: 50rem;
   }
   color: white;
   margin-top: 10vw;
@@ -70,17 +71,17 @@
   overflow: hidden;
   > :nth-child(1) {
     opacity: 0;
-    animation: backInRight 1s 1s;
+    animation: backInRight 1s;
     animation-fill-mode: forwards;
   }
   > :nth-child(2) {
     opacity: 0;
-    animation: backInLeft 1s 2s;
+    animation: backInLeft 1s 0.5s;
     animation-fill-mode: forwards;
   }
   > :nth-child(3) {
     opacity: 0;
-    animation: backInRight 1s 3s;
+    animation: backInRight 1s 1s;
     animation-fill-mode: forwards;
   }
 }

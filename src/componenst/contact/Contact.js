@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import "./contact.scss";
 import emailJs from "@emailjs/browser";
 import AnimateL from "../animate/AnimateL";
+import { useEffect } from "react";
 // import env from "dotenv";
-function Contact() {
+function Contact({ contactRef, position }) {
   const contArr = "Cntact Me".split("");
   const [letClass, setLetClass] = useState("about_animate");
   const [name, setName] = useState("");
@@ -34,7 +35,7 @@ function Contact() {
       )
       .then(
         (result) => {
-          alert("Message was ccessfuly sent!");
+          alert("Message was successfully sent!");
           window.location.reload(false);
         },
         (error) => {
@@ -42,31 +43,46 @@ function Contact() {
         }
       );
   };
-  useState(() => {
-    setTimeout(() => {
-      setLetClass("about_bounce_class");
-    }, 3000);
-  }, []);
+
+  useEffect(() => {
+    if (position !== "contact") {
+      setLetClass("about_animate_before");
+    } else {
+      setLetClass("about_animate");
+      setTimeout(() => {
+        setLetClass("about_bounce_class");
+      }, 3000);
+    }
+  }, [position]);
   return (
-    <div className="contact_cont">
+    <section className="contact_cont" id="contact">
       <div className="contact_text">
         <div className="contact_title">
-          <h1>
+          <h1 ref={contactRef}>
             <AnimateL arr={contArr} lclass={letClass} ind={1} />
           </h1>
           <p>
             I am interested in freelance opportunities. You can contact me by
-            using the below form or by email at muchsite3@gmail.com.
+            using the below form or by email at{" "}
+            <span>muchsite3@gmail.com.</span>
           </p>
         </div>
         <div className="contact_input">
           <form action="" onSubmit={handleSubmit} ref={form}>
             <ul>
               <div className="half_cont">
-                <li className="half">
+                <li
+                  className={`${
+                    position === "contact" && "input_animation"
+                  } half`}
+                >
                   <input type="text" placeholder="Name" name="name" required />
                 </li>
-                <li className="half">
+                <li
+                  className={`${
+                    position === "contact" && "input_animation"
+                  } half`}
+                >
                   <input
                     type="email"
                     name="email"
@@ -75,7 +91,7 @@ function Contact() {
                   />
                 </li>
               </div>
-              <li>
+              <li className={`${position === "contact" && "input_animation"}`}>
                 <input
                   type="text"
                   name="subject"
@@ -84,7 +100,7 @@ function Contact() {
                   required
                 />
               </li>
-              <li>
+              <li className={`${position === "contact" && "input_animation"}`}>
                 <textarea
                   name="message"
                   placeholder="Message"
@@ -92,7 +108,7 @@ function Contact() {
                   required
                 ></textarea>
               </li>
-              <li>
+              <li className={`${position === "contact" && "input_animation"}`}>
                 <button className="contact_btn" type="submit">
                   Send
                 </button>
@@ -130,7 +146,7 @@ function Contact() {
           </g>
         </svg>
       </div>
-    </div>
+    </section>
   );
 }
 

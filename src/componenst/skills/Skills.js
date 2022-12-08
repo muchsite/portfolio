@@ -11,21 +11,26 @@ import {
   faNode,
 } from "@fortawesome/free-brands-svg-icons";
 
-function Skills() {
+function Skills({ skillsRef, position }) {
   const abMe = "My Skills".split("");
   const [letClass, setLetClass] = useState("about_animate");
   useEffect(() => {
-    setTimeout(() => {
-      setLetClass("about_bounce_class");
-    }, 3000);
-  }, []);
+    if (position !== "skills") {
+      setLetClass("about_animate_before");
+    } else {
+      setLetClass("about_animate");
+      setTimeout(() => {
+        setLetClass("about_bounce_class");
+      }, 3000);
+    }
+  }, [position]);
   return (
-    <div className="skills_cont">
+    <section className="skills_cont" id="skills">
       <div className="skills_text">
-        <h1>
+        <h1 ref={skillsRef}>
           <AnimateL arr={abMe} lclass={letClass} ind={1} />
         </h1>
-        <div className="p_cont_skills">
+        <div className={`${position === "skills" && "p_cont_skills"}`}>
           <p>
             For front-end development, I use technologies like{" "}
             <span>HTML5</span>,<span> CSS</span>,<span> Sass</span>,
@@ -69,7 +74,7 @@ function Skills() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

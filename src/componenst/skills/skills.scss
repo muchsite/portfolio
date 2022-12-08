@@ -3,17 +3,17 @@
 .skills_cont {
   margin-left: 70px;
   display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-top: 10vw;
+  padding: 0 10rem 0 7rem;
   @include breack_down(large) {
     flex-direction: column;
     align-items: center;
   }
-  justify-content: space-between;
   @include breack_down(large) {
     margin-left: 0;
   }
-  color: white;
-  margin-top: 10vw;
-  padding: 0 10rem 0 7rem;
   @include breack_down(large) {
     padding: 0 0 0 3rem;
     margin-top: 8rem;
@@ -73,22 +73,22 @@
   overflow: hidden;
   > :nth-child(1) {
     opacity: 0;
-    animation: backInDown 1s 1s;
+    animation: backInDown 1s;
     animation-fill-mode: forwards;
   }
   > :nth-child(2) {
     opacity: 0;
-    animation: backInDown 1s 2s;
+    animation: backInDown 1s 0.5s;
     animation-fill-mode: forwards;
   }
   > :nth-child(3) {
     opacity: 0;
-    animation: backInDown 1s 3s;
+    animation: backInDown 1s 1s;
     animation-fill-mode: forwards;
   }
 }
 .skills_logo_cont {
-  transform: translateX(-10rem);
+  transform: translate(-10rem, -10rem);
   @include breack_down(large) {
     transform: translateX(0);
     padding-bottom: 5rem;

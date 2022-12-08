@@ -64,19 +64,25 @@
     line-height: 18px;
     font-weight: 300;
     font-family: sans-serif;
+    span {
+      color: $green;
+      cursor: auto;
+    }
   }
 }
 .contact_input {
   width: 100%;
+}
+.input_animation {
+  opacity: 0;
+  animation: fadeInUp 1s;
+  animation-fill-mode: forwards;
 }
 ul {
   li {
     list-style: none;
     display: block;
     width: 100%;
-    opacity: 0;
-    animation: fadeInUp 1s;
-    animation-fill-mode: forwards;
     textarea {
       padding: 12px;
       width: 100% !important;

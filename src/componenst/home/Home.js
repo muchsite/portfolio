@@ -3,7 +3,7 @@ import "./home.scss";
 import logo from "../../../src/assets/images/logo-m.svg";
 import AnimateL from "../animate/AnimateL";
 import { Link } from "react-router-dom";
-function Home() {
+function Home({ homeRef }) {
   const hi = "Hi,".split("");
   const I = "I'm".split("");
   const name = "urtaz,".split("");
@@ -30,9 +30,9 @@ function Home() {
     }
   };
   return (
-    <div className="home_cont">
+    <section className="home_cont" id="home">
       <div className="home_text">
-        <h1>
+        <h1 ref={homeRef}>
           <AnimateL arr={hi} lclass={lclass} ind={1} />
           <br />
           <AnimateL arr={I} lclass={lclass} ind={1 + hi.length} />
@@ -71,9 +71,8 @@ function Home() {
           />
         </h1>
         <p>Full Stack Developer / Freelancer </p>
-        <Link to="/contact">
-          <button>CONTACT ME</button>
-        </Link>
+
+        <a href="#contact">CONTACT ME</a>
       </div>
       <div className="home_logo">
         <img className="main_logo" src={logo} alt="" />
@@ -86,7 +85,7 @@ function Home() {
           <path d="M68.4184 9.50378L3.55881 200.669C2.14842 204.826 7.49453 207.891 10.3695 204.574L99.5815 101.637C103.691 96.8947 111.102 97.0656 114.989 101.992L142.603 136.991C146.622 142.084 154.35 142.062 158.34 136.947L185.492 102.128C189.375 97.1485 196.843 96.9695 200.96 101.757L289.957 205.251C292.829 208.591 298.201 205.515 296.775 201.348L231.151 9.59153C228.896 3.00248 220.765 0.678492 215.369 5.08076L156.76 52.8933C153.108 55.8724 147.872 55.8974 144.192 52.9533L84.1351 4.90807C78.7199 0.575897 70.6465 2.93661 68.4184 9.50378Z" />
         </svg>
       </div>
-    </div>
+    </section>
   );
 }
 
