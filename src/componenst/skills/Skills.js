@@ -13,12 +13,12 @@ import {
 
 function Skills({ skillsRef, position }) {
   const abMe = "My Skills".split("");
-  const [letClass, setLetClass] = useState("about_animate");
+  const [letClass, setLetClass] = useState("about_animate_before");
+  const [falseSkills, setFalseSkills] = useState(false);
   useEffect(() => {
-    if (position !== "skills") {
-      setLetClass("about_animate_before");
-    } else {
+    if (position === "skills" && !falseSkills) {
       setLetClass("about_animate");
+      setFalseSkills(true);
       setTimeout(() => {
         setLetClass("about_bounce_class");
       }, 3000);
@@ -30,7 +30,7 @@ function Skills({ skillsRef, position }) {
         <h1 ref={skillsRef}>
           <AnimateL arr={abMe} lclass={letClass} ind={1} />
         </h1>
-        <div className={`${position === "skills" && "p_cont_skills"}`}>
+        <div className={`${falseSkills && "p_cont_skills"}`}>
           <p>
             For front-end development, I use technologies like{" "}
             <span>HTML5</span>,<span> CSS</span>,<span> Sass</span>,

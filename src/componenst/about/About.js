@@ -3,24 +3,20 @@ import "./about.scss";
 import AnimateL from "../animate/AnimateL";
 function About({ aboutRef, position }) {
   const abMe = "About Me".split("");
-  const [letClass, setLetClass] = useState("about_animate");
-  const [handId, setHandId] = useState("");
-  const [timeId, setTime] = useState(undefined);
+  const [letClass, setLetClass] = useState("about_animate_before");
+  const [handId, setHandId] = useState(undefined);
+  const [falseAbout, setFalseAbout] = useState(false);
+  console.log(falseAbout);
   const clear = () => {
     setHandId("hand");
     setLetClass("about_bounce_class");
   };
-
   useEffect(() => {
-    if (position === "about") {
+    if (position === "about" && !falseAbout) {
       setHandId("handM");
       setLetClass("about_animate");
-      setTime(setTimeout(clear, 4000));
-    }
-    if (position !== "about") {
-      setLetClass("about_animate_before");
-      setHandId("");
-      clearTimeout(timeId);
+      setFalseAbout(true);
+      setTimeout(clear, 4000);
     }
   }, [position]);
 
@@ -30,7 +26,7 @@ function About({ aboutRef, position }) {
         <h1 ref={aboutRef}>
           <AnimateL arr={abMe} lclass={letClass} ind={1} />
         </h1>
-        <div className={`${position === "about" && "p_cont"}`}>
+        <div className={`${falseAbout && "p_cont"}`}>
           <p>
             I'm a self-taught <span>Full-Stack Web Developer</span>. Also, I
             have a BA in <span>Macroeconomics</span> and a Master's Degree in
@@ -61,7 +57,7 @@ function About({ aboutRef, position }) {
               <path id="Vector" d="M52 0H959V436H52V0Z" fill="#F7F7F7" />
               <g id="line">
                 <path
-                  className={`${position === "about" && "about_out"}`}
+                  className={`${falseAbout && "about_out"}`}
                   d="M931.5 249.16V344.26H923.61V377.92H903.88V358.9H880.33V347.42H907.82V341.11H880.33V325.98H876.93V341.11H871.53V344.26H865.21V326.71H851.8V344.26H829.7V361.82H805.24V334.02H801.29V313.54H797.47V281.58H832.07V275.27H797.47V271.11H794.07V275.27H781.57V281.58H794.07V313.54H777.62V354.51H730.27V323.78H725.66V313.77H745.27V307.46H725.66V304.68H722.26V307.46H719.22V313.77H722.26V323.78H708.18V341.11H683.71V347.42H694.24V357.43H678.98V372.06H671.88V364.75H664.78V249.16H660.04V231.6H645.05V367.67H616.64V231.6H604.8V243.31H598.49V335.48H588.23V360.36H583.5V335.48H563.77V319.39H555.09V300.37H547.2V257.94H534.57V274.03H503.01V335.48H486.43V315H466.71V274.03H417.78V322.32H410.17V335.48H405.16V252.09H399.63V231.6H390.16V249.16H379.9V319.39H375.17V335.48H369.65V285.74H330.98V326.71H318.35V344.26H311.25V354.51H304.15V342.8L299.81 334.76V316.47H280.47V358.9H273.37V348.65H265.48V231.6H259.17V199.42H252.07V183.32H242.6V170H228.39V193.56H220.5V218.44H215.77V304.68H207.09V288.67H196.04V312.08H183.41V244.77L178.68 235.99V205.27H152.64V227.21H139.22V271.11H132.91V262.33H125.02L120.28 271.11L118.23 274.91V376.45H109.24V275.5H101.34V265.25H89.51V281.35H78.46V307.46H72.27V295.98H68.87V307.46H54V313.77H68.87V347.19H67.41V374.99H55.47V436H962.47V249.16H931.5ZM78.46 322.32H72.94V347.19H72.27V313.77H78.46V322.32ZM708.18 357.43H697.65V347.42H708.18V357.43ZM876.93 358.9H871.53V347.42H876.93V358.9Z"
                   stroke="#050296"
                   strokeWidth="2"
@@ -86,7 +82,7 @@ function About({ aboutRef, position }) {
                 fill="#0E538C"
               />
             </g>
-            <g id={`${position === "about" && "person"}`}>
+            <g id={`${falseAbout && "person"}`}>
               <path
                 id="Vector_5"
                 d="M393.63 570.41L284.37 587L277 580V492H398.89L412 499.46L393.63 570.41Z"
@@ -193,7 +189,7 @@ function About({ aboutRef, position }) {
                 fill="#0E538C"
               />
             </g>
-            <g id={`${position === "about" && "right"}`}>
+            <g id={`${falseAbout && "right"}`}>
               <path
                 id="Vector_26"
                 d="M893.79 783.01C918.98 783.01 929.62 762.89 933.8 741.55C938.53 717.47 935.06 691.84 935.06 691.84H852.52C852.52 691.84 852.39 692.82 852.21 694.56C850.67 709.72 845.7 783.01 893.79 783.01V783.01Z"
@@ -240,7 +236,7 @@ function About({ aboutRef, position }) {
                 fill="#CCE9FF"
               />
             </g>
-            <g id={`${position === "about" && "left"}`}>
+            <g id={`${falseAbout && "left"}`}>
               <path
                 id="Vector_35"
                 d="M74.72 785.67C88.63 785.67 94.5 774.56 96.81 762.78C99.42 749.49 97.5 735.34 97.5 735.34H51.94C51.94 735.34 51.87 735.88 51.77 736.84C50.92 745.2 48.17 785.67 74.72 785.67Z"

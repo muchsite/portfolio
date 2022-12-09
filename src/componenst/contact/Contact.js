@@ -6,13 +6,13 @@ import { useEffect } from "react";
 // import env from "dotenv";
 function Contact({ contactRef, position }) {
   const contArr = "Cntact Me".split("");
-  const [letClass, setLetClass] = useState("about_animate");
+  const [letClass, setLetClass] = useState("about_animate_before");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
   const form = useRef();
-
+  const [falseContact, setFalseContact] = useState(false);
   const test = () => {
     if (
       name.length > 1 &&
@@ -45,10 +45,9 @@ function Contact({ contactRef, position }) {
   };
 
   useEffect(() => {
-    if (position !== "contact") {
-      setLetClass("about_animate_before");
-    } else {
+    if (position === "contact" && !falseContact) {
       setLetClass("about_animate");
+      setFalseContact(true);
       setTimeout(() => {
         setLetClass("about_bounce_class");
       }, 3000);
@@ -71,18 +70,10 @@ function Contact({ contactRef, position }) {
           <form action="" onSubmit={handleSubmit} ref={form}>
             <ul>
               <div className="half_cont">
-                <li
-                  className={`${
-                    position === "contact" && "input_animation"
-                  } half`}
-                >
+                <li className={`${falseContact && "input_animation"} half`}>
                   <input type="text" placeholder="Name" name="name" required />
                 </li>
-                <li
-                  className={`${
-                    position === "contact" && "input_animation"
-                  } half`}
-                >
+                <li className={`${falseContact && "input_animation"} half`}>
                   <input
                     type="email"
                     name="email"
@@ -91,7 +82,7 @@ function Contact({ contactRef, position }) {
                   />
                 </li>
               </div>
-              <li className={`${position === "contact" && "input_animation"}`}>
+              <li className={`${falseContact && "input_animation"}`}>
                 <input
                   type="text"
                   name="subject"
@@ -100,7 +91,7 @@ function Contact({ contactRef, position }) {
                   required
                 />
               </li>
-              <li className={`${position === "contact" && "input_animation"}`}>
+              <li className={`${falseContact && "input_animation"}`}>
                 <textarea
                   name="message"
                   placeholder="Message"
@@ -108,7 +99,7 @@ function Contact({ contactRef, position }) {
                   required
                 ></textarea>
               </li>
-              <li className={`${position === "contact" && "input_animation"}`}>
+              <li className={`${falseContact && "input_animation"}`}>
                 <button className="contact_btn" type="submit">
                   Send
                 </button>
