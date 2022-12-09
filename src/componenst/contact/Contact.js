@@ -57,10 +57,10 @@ function Contact({ contactRef, position }) {
     <section className="contact_cont" id="contact">
       <div className="contact_text">
         <div className="contact_title">
-          <h1 ref={contactRef}>
+          <h1>
             <AnimateL arr={contArr} lclass={letClass} ind={1} />
           </h1>
-          <p>
+          <p ref={contactRef}>
             I am interested in freelance opportunities. You can contact me by
             using the below form or by email at{" "}
             <span>muchsite3@gmail.com.</span>
