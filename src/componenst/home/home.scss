@@ -20,6 +20,7 @@
   min-width: fit-content;
   .logo_span {
     position: relative;
+    top: -10px;
     margin-left: 10px;
     margin-right: 2.7rem;
     @include breack_down(medium) {

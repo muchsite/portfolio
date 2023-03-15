@@ -12,7 +12,6 @@ export const CreateApiContext = ({ children }) => {
   const [chose, setChose] = useState("All regions");
   useState(() => {
     setChose(localStorage.getItem("region"));
-    console.log(localStorage.getItem("region"), chose);
   }, []);
   const handleRegion = (e) => {
     localStorage.setItem("region", e.target.value);
@@ -61,7 +60,6 @@ export const CreateApiContext = ({ children }) => {
     "Oceania",
     "Antarctic",
   ];
-  console.log(chose);
   return (
     <apiConetxt.Provider
       value={{
