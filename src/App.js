@@ -1,70 +1,46 @@
-import { Route, BrowserRouter, Routes, HashRouter } from "react-router-dom";
 import "./App.scss";
 import "animate.css";
 
-import Home from "./componenst/home/Home";
-import About from "./componenst/about/About";
-import Contact from "./componenst/contact/Contact";
-import Layout from "./componenst/layout/Layout";
-import Skills from "./componenst/skills/Skills";
-import SideBar from "./componenst/sideBar/SideBar";
-import { useRef, useEffect, useState } from "react";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { CreateApiContext } from "./componenst/pages/api/constext";
+import Route1 from "./Route1";
+import Landing from "./componenst/pages/landing/landing";
+import Calc from "./componenst/pages/calc/Calc";
+import HomeSpace from "./componenst/pages/space/Home";
+import { SpaceContextProvider } from "../src/componenst/pages/space/SpaceContext";
+import Destination from "./componenst/pages/space/Destination";
+import Crew from "./componenst/pages/space/Crew";
+import Technology from "./componenst/pages/space/Technology";
+import MainApi from "../src/componenst/pages/api/MainApi";
+
+import Details from "./componenst/pages/api/details";
 
 function App() {
-  const [position, setPosition] = useState();
-  const homeRef = useRef();
-  const aboutRef = useRef();
-  const skillsRef = useRef();
-  const contactRef = useRef();
-  useEffect(() => {
-    const home = new IntersectionObserver((entry) => {
-      const entry1 = entry[0];
-      if (entry1.isIntersecting) {
-        setPosition("home");
-      }
-    });
-    const about = new IntersectionObserver((entry) => {
-      const entry1 = entry[0];
-      if (entry1.isIntersecting) {
-        setPosition("about");
-      }
-    });
-    const skills = new IntersectionObserver((entry) => {
-      const entry1 = entry[0];
-      if (entry1.isIntersecting) {
-        setPosition("skills");
-      }
-    });
-    const contact = new IntersectionObserver((entry) => {
-      const entry1 = entry[0];
-      if (entry1.isIntersecting) {
-        setPosition("contact");
-      }
-    });
-    home.observe(homeRef.current);
-    about.observe(aboutRef.current);
-    skills.observe(skillsRef.current);
-    contact.observe(contactRef.current);
-  }, []);
-  // console.log(position);
+  const queryClient = new QueryClient();
   return (
-    <main>
-      <SideBar position={position} />
-      <Home homeRef={homeRef} position={position} />
-      <About aboutRef={aboutRef} position={position} />
-      <Skills skillsRef={skillsRef} position={position} />
-      <Contact contactRef={contactRef} position={position} />
-      {/* <HashRouter> */}
-      {/* <Routes> */}
-      {/* <Route path="/" element={<Layout />}> */}
-      {/* <Route path="/" element={<Home />} /> */}
-      {/* <Route path="/about" element={<About />} /> */}
-      {/* <Route path="/skills" element={<Skills />} /> */}
-      {/* <Route path="/contact" element={<Contact />} /> */}
-      {/* </Route> */}
-      {/* </Routes> */}
-      {/* </HashRouter> */}
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <CreateApiContext>
+        <SpaceContextProvider>
+          <HashRouter>
+            <Routes>
+              <Route path="/" element={<Route1 />} />
+              <Route path="/pages/landing" element={<Landing />} />
+              <Route path="/pages/calc" element={<Calc />} />
+              <Route element={<HomeSpace />} path="/pages/space/home" />
+              <Route
+                element={<Destination />}
+                path="/pages/space/destination"
+              />
+              <Route element={<Crew />} path="/pages/space/crew" />
+              <Route element={<Technology />} path="/pages/space/technology" />
+              <Route path="/pages/api/" element={<MainApi />} />
+              <Route path="/pages/api/name/:fds" element={<Details />} />
+            </Routes>
+          </HashRouter>
+        </SpaceContextProvider>
+      </CreateApiContext>
+    </QueryClientProvider>
   );
 }
 

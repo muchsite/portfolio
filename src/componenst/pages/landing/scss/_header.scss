@@ -1,0 +1,111 @@
+@use "var" as *;
+@use "mixins" as *;
+.header {
+  nav {
+    padding: 1.0625rem 1.5rem;
+  }
+  &__logo {
+    img {
+      width: 8.8125rem;
+      height: 1.375rem;
+    }
+  }
+  &__menu {
+    cursor: pointer;
+    span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background-color: $darkblue;
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+      transform-origin: 3px 1px;
+      transition: all 300ms ease-in-out;
+    }
+    &.open {
+      span:first-child {
+        transform: rotate(45deg);
+      }
+      span:last-child {
+        transform: rotate(-45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+        transition: 0ms;
+      }
+    }
+  }
+  &__links {
+    a {
+      position: relative;
+      transition: color 300ms ease-in-out;
+      font-size: $font-sm;
+      color: $GrayishBlue;
+      font-family: sans-serif;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 5px;
+        background-color: lime;
+        left: 0;
+        right: 0;
+        bottom: -30px;
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      &:hover {
+        color: $darkblue;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.menu_active_back {
+  @include breack-down(medium) {
+    position: absolute;
+    z-index: 2;
+    height: 91vh;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba($darkblue, 0.9),
+      rgba($darkblue, 0.2)
+    );
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transform: translateY(-120%);
+    transition: 300ms ease-in-out;
+
+    & .menu_active {
+      margin-top: 1.5rem;
+      background: white;
+      height: 16.563rem;
+      width: 20.438rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-size: 1rem;
+      border-radius: 4px;
+      font-family: sans-serif;
+
+      & a {
+        color: $darkblue;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.trn0 {
+  transform: translateY(0);
+}

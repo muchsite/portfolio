@@ -1,0 +1,97 @@
+@use "var" as *;
+@use "mixins" as *;
+.hero {
+  max-width: 100vw;
+  min-height: 105vh;
+  overflow: hidden;
+  // overflow-x: hidden;
+  // overflow-y: visible;
+  @include breack-up(large) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+.hero_back {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  @include breack-up(large) {
+    background-image: url(../images/bg-intro-desktop.svg);
+    height: 40rem;
+    width: 100%;
+    background-position: bottom left;
+    background-size: 122%;
+    background-repeat: no-repeat;
+  }
+  @include breack-down(medium) {
+    background-image: url(../images/bg-intro-mobile.svg);
+    height: 18.75rem;
+    width: 100%;
+    background-position: center;
+  }
+
+  // position: relative;
+  &::before {
+    @include breack-down(medium) {
+      position: absolute;
+      content: "";
+      background-image: url(../images/image-mockups.png);
+      background-position: center bottom;
+      background-size: 95%;
+      width: 100%;
+      height: 100%;
+    }
+    @include breack-up(large) {
+      position: absolute;
+      content: "";
+      background-image: url(../images/image-mockups.png);
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: 85%;
+      width: 100%;
+      height: 48.688rem;
+      left: 8.5rem;
+    }
+  }
+}
+.hero_cont {
+  text-align: center;
+  padding: 3.125rem;
+  & h1 {
+    font-size: 1.875rem;
+    color: $darkblue;
+    margin-bottom: 1.625rem;
+    font-family: Public Sans;
+    font-weight: bold;
+    margin: 3rem 0;
+    @include breack-up(large) {
+      font-size: 3.188rem;
+    }
+  }
+  & p {
+    font-size: 0.813rem;
+    padding-bottom: 2.313rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    font-family: Public Sans;
+    @include breack-up(large) {
+      font-size: 1.25rem;
+    }
+  }
+}
+.part {
+  max-width: 38.188rem;
+  & h2 {
+    font-family: Public Sans;
+    font-size: 1.813rem;
+    color: $darkblue;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+  }
+  & p {
+    font-family: Public Sans;
+    font-size: 1rem;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+  }
+}

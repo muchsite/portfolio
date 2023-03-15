@@ -29,6 +29,13 @@ function Home({ homeRef }) {
       }, 1600);
     }
   };
+  const handleContact = () => {
+    const position = document.getElementById("contact").offsetTop - 120;
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+  };
   return (
     <section className="home_cont" id="home">
       <div className="home_text">
@@ -72,7 +79,7 @@ function Home({ homeRef }) {
         </h1>
         <p>Full Stack Developer / Freelancer </p>
 
-        <a href="#contact">CONTACT ME</a>
+        <button onClick={handleContact}>CONTACT ME</button>
       </div>
       <div className="home_logo">
         <img className="main_logo" src={logo} alt="" />

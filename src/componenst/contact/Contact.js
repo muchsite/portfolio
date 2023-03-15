@@ -25,7 +25,6 @@ function Contact({ contactRef, position }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
     emailJs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,

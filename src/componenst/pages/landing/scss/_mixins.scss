@@ -1,0 +1,13 @@
+$breack-up: ("medium": "40em","large": "64em", "xlarge":"87.5em");
+$breack-down: ("small": "39.9em","medium": "63.995em", "large":"87.3em");
+@mixin breack-up($size){
+    @media (min-width: map-get($breack-up,$size)){
+        @content
+    }
+
+};
+@mixin breack-down($size){
+    @media (max-width: map-get($breack-down,$size)){
+        @content
+    }
+};

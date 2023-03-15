@@ -1,0 +1,41 @@
+@use "var" as *;
+@use "mixins" as *;
+.mainpr {
+  background-color: $VeryLightGray;
+  padding: 2rem;
+}
+
+.products {
+  @include breack-up(large) {
+    display: flex;
+  }
+}
+
+.product {
+  margin-top: 2.5rem;
+  text-align: center;
+  @include breack-up(large) {
+    text-align: left;
+    &:not(:last-child) {
+      margin-right: 1.938rem;
+    }
+  }
+
+  & h2 {
+    font-size: 1.125rem;
+    color: $darkblue;
+    margin-top: 1.938rem;
+    margin-bottom: 1.563rem;
+    font-family: Public Sans;
+    @include breack-up(large) {
+      font-size: 1.25rem;
+    }
+  }
+  & p {
+    font-size: 0.875rem;
+    font-family: Public Sans;
+    @include breack-up(large) {
+      font-size: 1rem;
+    }
+  }
+}

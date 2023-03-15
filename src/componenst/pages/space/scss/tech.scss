@@ -1,0 +1,107 @@
+@use "./vars" as *;
+@use "../../../../scss/media.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+.dest-head {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 140px;
+  font-size: 1.7rem;
+  color: $main-white;
+  span {
+    color: $span;
+  }
+  //   overflow-y: hidden;
+}
+.mob_img {
+  @include breack_down(large) {
+    display: none;
+  }
+}
+.pc_img {
+  @include breack_down(large) {
+    width: 100vw;
+  }
+  @include breack_up(medium) {
+    display: none;
+  }
+}
+.tech_content {
+  color: $main-white;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 60px;
+  @include breack_down(large) {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0;
+  }
+}
+.tech_text {
+  max-width: 35vw;
+  @include breack_down(large) {
+    max-width: 70vw;
+  }
+  h6 {
+    font-family: Bellefair;
+    font-size: 16px;
+    opacity: 0.5;
+    @include breack_down(large) {
+      //   max-width: 70vw;
+    }
+  }
+  h1 {
+    font-family: Bellefair;
+    font-size: 56px;
+    margin: 30px 0;
+    text-transform: uppercase;
+    @include breack_down(large) {
+      font-size: 40px;
+    }
+  }
+  p {
+    font-family: Bellefair;
+    font-size: 18px;
+    color: $paragrap;
+    line-height: 40px;
+    @include breack_down(large) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+
+.tech_btns {
+  @include breack_down(large) {
+    display: flex;
+    margin-top: 30px;
+  }
+}
+.tech_btn {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 2px solid $span;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 32px;
+  font-family: Bellefair;
+  cursor: pointer;
+  transition: 0.5s;
+  @include breack_down(large) {
+    width: 60px;
+    height: 60px;
+    margin-top: 0;
+    margin-right: 20px;
+    font-size: 25px;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.tech_active {
+  background-color: $main-white;
+  color: $span;
+  border: none;
+}

@@ -6,7 +6,6 @@ function About({ aboutRef, position }) {
   const [letClass, setLetClass] = useState("about_animate_before");
   const [handId, setHandId] = useState(undefined);
   const [falseAbout, setFalseAbout] = useState(false);
-  console.log(falseAbout);
   const clear = () => {
     setHandId("hand");
     setLetClass("about_bounce_class");

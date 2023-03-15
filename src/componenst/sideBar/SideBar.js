@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, NavLink as a } from "react-router-dom";
-import { faEnvelope, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faHome,
+  faUser,
+  faProjectDiagram,
+} from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.scss";
 import Hamburger from "./Hamburger";
 import { faBrain } from "@fortawesome/free-solid-svg-icons";
@@ -70,6 +74,14 @@ function SideBar({ position }) {
             onClick={(e) => handleClick(e)}
           >
             <FontAwesomeIcon icon={faBrain} />
+          </a>
+          <a
+            href="#work"
+            id="nav-work"
+            className={`${position === "work" && "active_nav_link"}`}
+            onClick={(e) => handleClick(e)}
+          >
+            <FontAwesomeIcon icon={faProjectDiagram} />
           </a>
           <a
             href="#contact"

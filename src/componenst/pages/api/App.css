@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  --element: hsl(209, 23%, 22%);
+  --elementBack: hsl(209, 23%, 22%);
+  --background: hsl(207, 26%, 17%);
+  --text: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 52%);
+}
+.light {
+  --element: white;
+  --background: hsl(0, 0%, 98%);
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+  --elementBack: white;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--element);
+  padding: 32px 80px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: "Nunito Sans", sans-serif;
+}
+@media only screen and (max-width: 1000px) {
+  .nav {
+    padding: 10px 20px;
+    font-size: 10px;
+  }
+}
+.moon {
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+@media only screen and (max-width: 1000px) {
+  .moon {
+    font-size: 10px;
+  }
+}
+.moon img {
+  height: 15px;
+  margin-right: 12px;
+}
+.elements {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 75px;
+  padding: 0 80px;
+  background-color: var(--background);
+  padding-top: 50px;
+}
+@media only screen and (min-width: 600px) {
+  .elements {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .elements {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .elements {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+.element {
+  background-color: var(--elementBack);
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 5px;
+  font-family: "Nunito Sans", sans-serif;
+}
+.element__img {
+  width: 260px;
+  height: 160px;
+  border-radius: 5px 5px 0 0;
+}
+.item_title {
+  font-weight: 600;
+}
+.country_name {
+  font-weight: 800;
+  font-size: 18px;
+}
+.country_desc {
+  padding: 30px 24px 45px 24px;
+}
+.inputs {
+  background-color: var(--background);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 45px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+@media only screen and (max-width: 1000px) {
+  .inputs {
+    flex-direction: column;
+  }
+}
+.search {
+  display: flex;
+  background-color: var(--elementBack);
+  border-radius: 5px;
+  padding-left: 30px;
+  align-items: center;
+}
+.search input {
+  background-color: var(--elementBack);
+  border: 0;
+  color: var(--text);
+  width: 470px;
+  height: 50px;
+  font-family: "Nunito Sans", sans-serif;
+}
+.search input:focus {
+  outline: none;
+}
+.search ::placeholder {
+  color: var(--text);
+  font-family: "Nunito Sans", sans-serif;
+}
+.search img {
+  height: 20px;
+}
+.search2 select {
+  width: 200px;
+  height: 55px;
+  background-color: var(--element);
+  color: var(--text);
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  font-family: "Nunito Sans", sans-serif;
+}
+@media only screen and (max-width: 1000px) {
+  .search2 {
+    margin-top: 20px;
+  }
+}
+.search2 input:focus {
+  outline: none;
+}
+.details-page {
+  background: var(--background);
+  min-height: 150vh;
+  padding: 80px 80px 0 80px;
+  color: var(--text);
+  font-family: "Nunito Sans", sans-serif;
+}
+.back-BTN {
+  width: 135px;
+  height: 40px;
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--element);
+  padding: 9px 30px;
+  border-radius: 3px;
+  font-family: "Nunito Sans", sans-serif;
+}
+.details-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 1400px) {
+  .details-container {
+    flex-direction: row;
+  }
+  .details-container img {
+    margin-right: 140px;
+    height: 400px;
+  }
+  .stat {
+    display: flex;
+  }
+  .stat1 {
+    margin-right: 110px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .details-container {
+    flex-direction: row;
+  }
+  .details-container img {
+    margin-right: 90px;
+    height: 300px;
+  }
+  .stat {
+    display: flex;
+  }
+  .stat1 {
+    margin-right: 110px;
+  }
+}
+.stat {
+  margin-top: 34px;
+}
+.stat p {
+  margin-top: 12px;
+  color: var(--text);
+}
+.bold {
+  font-weight: 600;
+  margin-right: 10px;
+}
+.bold1 {
+  font-weight: 600;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+.neighbours {
+  margin-top: 70px;
+  max-width: 100%;
+  display: flex;
+}
+.neCountry {
+  background-color: var(--element);
+  padding: 8px 21px 8px 21px;
+  margin-right: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.neighGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

@@ -107,6 +107,11 @@
     content: "SKILLS";
   }
 }
+#nav-work {
+  &::after {
+    content: "WORK";
+  }
+}
 a.active_nav_link {
   svg {
     color: $green;

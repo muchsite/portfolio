@@ -1,0 +1,185 @@
+@use "./vars" as *;
+@use "../../../../scss/media" as *;
+.dn_for_small_screen {
+  @include breack_down(medium) {
+    display: none !important;
+  }
+}
+.dn_for_medium_screen {
+  @include breack_up(small) {
+    display: none !important;
+  }
+}
+
+.nav_container {
+  color: $main-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-left: 55px;
+  @include breack_down(large) {
+    padding: 0;
+  }
+}
+.nav_cont::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 330px;
+  height: 1px;
+  background-color: #484b54;
+  transform: translate(-320px, 29px);
+  @include breack_down(large) {
+    display: none;
+  }
+}
+.nav_cont {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(20px);
+}
+.nav-link {
+  text-decoration: none;
+  color: $main-white;
+  margin-right: 50px;
+  padding: 20px;
+  position: relative;
+  @include breack_down(large) {
+    margin: 0;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: $hover-C;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    transition: all ease-in-out 0.5s;
+    opacity: 0;
+  }
+  &:hover {
+    &::after {
+      opacity: 1;
+      bottom: 0px;
+    }
+  }
+}
+.homeB {
+  @include breack_down(large) {
+    background-image: url(../assets/home/background-home-tablet.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  background-image: url(../assets/home/background-home-desktop.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+.destinationB {
+  background-image: url(../assets/destination/background-destination-desktop.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+.crewB {
+  background-image: url(../assets/crew/background-crew-desktop.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+.technologyB {
+  background-image: url(../assets/technology/background-technology-desktop.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+.link-active {
+  width: 100%;
+  height: 3px;
+  background: $main-white;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  transition: 2s ease-in-out;
+  display: none;
+}
+.active {
+  display: block;
+}
+///Hamburger
+.ham_cont {
+  position: relative;
+}
+.ham_icon {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 2;
+  cursor: pointer;
+}
+.icon_line_1 {
+  width: 23px;
+  height: 3px;
+  background-color: #d0d6f9;
+  margin-bottom: 3px;
+  transition: 0.5s;
+}
+.icon_line_1_x {
+  width: 25px;
+  transform: translate(3px, 3px);
+  rotate: 45deg;
+}
+.icon_line_2 {
+  width: 23px;
+  height: 3px;
+  background-color: #d0d6f9;
+  margin-bottom: 3px;
+  transition: 0.5;
+}
+.icon_line_2_x {
+  display: none;
+}
+.icon_line_3 {
+  width: 23px;
+  height: 3px;
+  background-color: #d0d6f9;
+  margin-bottom: 3px;
+  transition: 0.5s;
+}
+.icon_line_3_x {
+  width: 25px;
+  transform: translate(1px, -1px);
+  rotate: -45deg;
+}
+.ham_content {
+  height: 100vh;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(20px);
+  position: fixed;
+  transform: translateX(100%);
+  transition: 1s;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20vh;
+  padding-left: 15px;
+  a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+}
+.open_menu {
+  transform: translateX(0);
+}

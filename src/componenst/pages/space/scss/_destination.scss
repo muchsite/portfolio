@@ -1,0 +1,137 @@
+@use "./vars" as *;
+@use "../../../../scss/media" as *;
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+.destination {
+  color: $main-white;
+  font-family: Bellefair;
+  @include breack_down(large) {
+    padding-bottom: 3rem;
+  }
+}
+.dest_img {
+  width: 445px;
+  height: 445px;
+  @include breack_down(large) {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 50px;
+  }
+  @include breack_down(small) {
+    width: 150px;
+    height: 150px;
+  }
+}
+.dest-head {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 140px;
+  font-size: 1.7rem;
+  font-family: Bellefair;
+  span {
+    color: $span;
+  }
+}
+.destContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 150px;
+  @include breack_down(large) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+.des-btn-container {
+  position: relative;
+}
+.destInfo {
+  max-width: 445px;
+}
+.des-btns {
+  display: flex;
+}
+.destBtn {
+  @include breack_down(large) {
+    margin-right: 20px;
+  }
+  text-decoration: none;
+  color: $main-white;
+  margin-right: 50px;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: 85px;
+    height: 3px;
+    background: $hover-C;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    transition: all ease-in-out 0.5s;
+    opacity: 0;
+  }
+  &:hover {
+    &::after {
+      opacity: 1;
+      bottom: 0px;
+    }
+  }
+}
+.des-active {
+  width: 85px;
+  height: 3px;
+  background: $main-white;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  display: block;
+}
+.dest-header {
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: 100px;
+  font-family: Bellefair;
+  @include breack_down(large) {
+    font-size: 80px;
+  }
+  @include breack_down(small) {
+    font-size: 56px;
+  }
+}
+.des-description {
+  color: $main;
+  margin-top: 20px;
+  font-family: Bellefair;
+  @include breack_down(large) {
+    font-size: 16px;
+  }
+}
+.stat {
+  display: flex;
+  margin-top: 20px;
+  @include breack_down(large) {
+    justify-content: space-around;
+  }
+  p {
+    font-size: 17px;
+    color: $main;
+    font-family: Bellefair;
+    margin-bottom: 10px;
+  }
+  h6 {
+    color: $main-white;
+    font-size: 21px;
+    font-family: Bellefair;
+  }
+}
+.stat1 {
+  margin-right: 60px;
+}
+.dest-line {
+  display: block;
+  background-color: $main;
+  height: 1px;
+  width: 100%;
+  margin-top: 20px;
+}
