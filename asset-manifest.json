@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.1e96da34.css",
-    "main.js": "/portfolio/static/js/main.4a8280ab.js",
+    "main.css": "/portfolio/static/css/main.4c0b4acb.css",
+    "main.js": "/portfolio/static/js/main.24f62cde.js",
     "static/media/land.jpg": "/portfolio/static/media/land.b9381b6025e88f029891.jpg",
     "static/media/helveticaneue.woff": "/portfolio/static/media/helveticaneue.14cc85b1652bbe1956b0.woff",
     "static/media/image-victor-glover.png": "/portfolio/static/media/image-victor-glover.8a9a5424588b73ec61c2.png",
@@ -47,11 +47,11 @@
     "index.html": "/portfolio/index.html",
     "static/media/icon-youtube.svg": "/portfolio/static/media/icon-youtube.7d6960fbb0c4831f7c667012f0b102d2.svg",
     "static/media/icon-facebook.svg": "/portfolio/static/media/icon-facebook.1e9b33385e6dfe7a61acbff13373209c.svg",
-    "main.1e96da34.css.map": "/portfolio/static/css/main.1e96da34.css.map",
-    "main.4a8280ab.js.map": "/portfolio/static/js/main.4a8280ab.js.map"
+    "main.4c0b4acb.css.map": "/portfolio/static/css/main.4c0b4acb.css.map",
+    "main.24f62cde.js.map": "/portfolio/static/js/main.24f62cde.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e96da34.css",
-    "static/js/main.4a8280ab.js"
+    "static/css/main.4c0b4acb.css",
+    "static/js/main.24f62cde.js"
   ]
 }
