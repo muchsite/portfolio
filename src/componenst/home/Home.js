@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./home.scss";
 import logo from "../../../src/assets/images/logo-m.svg";
 import AnimateL from "../animate/AnimateL";
-import { Link } from "react-router-dom";
+
 function Home({ homeRef }) {
   const hi = "Hi,".split("");
   const I = "I'm".split("");
@@ -77,7 +77,7 @@ function Home({ homeRef }) {
             ind={1 + hi.length + I.length + name.length}
           />
         </h1>
-        <p>Full Stack Developer / Freelancer </p>
+        <p>Full Stack Developer </p>
 
         <button onClick={handleContact}>CONTACT ME</button>
       </div>
