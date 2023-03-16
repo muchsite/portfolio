@@ -45,12 +45,12 @@ function Work({ workRef, position }) {
             <p>Calculator app</p>
           </Link>
         </div>
-        <div className={`${falseWork && "work_animation3"} work_item`}>
+        {/* <div className={`${falseWork && "work_animation3"} work_item`}>
           <Link to="/pages/api/" target="_blank">
             <img src={api} alt="" />
             <p>REST Countries API with color theme switcher</p>
           </Link>
-        </div>
+        </div> */}
         <div className={`${falseWork && "work_animation4"} work_item`}>
           <Link to="/pages/landing" target="_blank">
             <img src={land} alt="" />
