@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./about.scss";
 import AnimateL from "../animate/AnimateL";
-function About({ aboutRef, position }) {
+function About({ aboutRef, position, aboutRed }) {
   const abMe = "About Me".split("");
   const [letClass, setLetClass] = useState("about_animate_before");
   const [handId, setHandId] = useState(undefined);
@@ -20,7 +20,7 @@ function About({ aboutRef, position }) {
   }, [position]);
 
   return (
-    <section className="about_cont" id="about">
+    <section className="about_cont" id="about" ref={aboutRed}>
       <div className="about_text">
         <h1 ref={aboutRef}>
           <AnimateL arr={abMe} lclass={letClass} ind={1} />

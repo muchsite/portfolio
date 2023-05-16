@@ -3,7 +3,7 @@ import "./home.scss";
 import logo from "../../../src/assets/images/logo-m.svg";
 import AnimateL from "../animate/AnimateL";
 
-function Home({ homeRef }) {
+function Home({ homeRef, logoRef }) {
   const hi = "Hi,".split("");
   const I = "I'm".split("");
   const name = "urtaz,".split("");
@@ -81,7 +81,7 @@ function Home({ homeRef }) {
 
         <button onClick={handleContact}>CONTACT ME</button>
       </div>
-      <div className="home_logo">
+      <div className="home_logo" ref={logoRef}>
         <img className="main_logo" src={logo} alt="" />
         <svg
           className="main_logo_out"

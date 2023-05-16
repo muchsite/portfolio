@@ -5,9 +5,7 @@
   color: #fff;
   display: flex;
   justify-content: space-between;
-  margin-top: 10vw;
   padding: 0 10rem 0 7rem;
-  margin-top: 10rem;
   height: 30vh;
   align-items: flex-start;
   @include breack_down(large) {
@@ -15,9 +13,13 @@
     padding: 0 0 0 3rem;
     align-items: center;
   }
+  @include breack_down(medium) {
+    margin-top: 8rem;
+  }
 }
 .home_text {
   min-width: fit-content;
+  margin-top: 8vw;
   .logo_span {
     position: relative;
     top: -10px;
@@ -132,12 +134,12 @@
 .home_logo {
   position: fixed;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  transform: translate(-50%, 20vh);
   z-index: -1;
   opacity: 0.3;
   @include breack_down(medium) {
-    top: auto;
+    // top: auto;
   }
 }
 .main_logo {

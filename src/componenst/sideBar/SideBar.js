@@ -9,19 +9,11 @@ import {
 import "./sidebar.scss";
 import Hamburger from "./Hamburger";
 import { faBrain } from "@fortawesome/free-solid-svg-icons";
-function SideBar({ position }) {
+function SideBar({ position, sidebarRef, handleClick }) {
   const [open, setOpen] = useState(false);
-  const handleClick = (e) => {
-    e.preventDefault();
-    const id = e.currentTarget.getAttribute("href").slice(1);
-    const position = document.getElementById(id).offsetTop - 70;
-    window.scrollTo({
-      left: 0,
-      top: position,
-    });
-  };
+
   return (
-    <div className="side_container">
+    <div className="side_container" ref={sidebarRef}>
       <a href="#home">
         <svg
           className="side_logo"

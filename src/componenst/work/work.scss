@@ -6,7 +6,7 @@
   justify-content: space-between;
   color: white;
   padding: 0 2rem 0 7rem;
-  margin-top: 10rem;
+  margin-top: 16rem;
   h1 {
     position: relative;
     margin-bottom: 5rem;
@@ -101,26 +101,26 @@
 }
 .work_animation2 {
   opacity: 0;
-  animation: backInLeft 1s 1s;
+  animation: backInLeft 1s 0.7s;
   animation-fill-mode: forwards;
 }
 .work_animation3 {
   opacity: 0;
-  animation: backInLeft 1s 1.5s;
+  animation: backInLeft 1s 0.9s;
   animation-fill-mode: forwards;
 }
 .work_animation4 {
   opacity: 0;
-  animation: backInLeft 1s 2s;
+  animation: backInLeft 1s 0.9s;
   animation-fill-mode: forwards;
 }
 .work_animation5 {
   opacity: 0;
-  animation: backInLeft 1s 2.5s;
+  animation: backInLeft 1s 1.1s;
   animation-fill-mode: forwards;
 }
 .work_animation6 {
   opacity: 0;
-  animation: backInLeft 1s 3s;
+  animation: backInLeft 1s 1.3s;
   animation-fill-mode: forwards;
 }
