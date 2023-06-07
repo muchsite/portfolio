@@ -13,7 +13,6 @@ import Destination from "./componenst/pages/space/Destination";
 import Crew from "./componenst/pages/space/Crew";
 import Technology from "./componenst/pages/space/Technology";
 import MainApi from "../src/componenst/pages/api/MainApi";
-
 import Details from "./componenst/pages/api/details";
 
 function App() {

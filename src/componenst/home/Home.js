@@ -3,7 +3,7 @@ import "./home.scss";
 import logo from "../../../src/assets/images/logo-m.svg";
 import AnimateL from "../animate/AnimateL";
 
-function Home({ homeRef, logoRef }) {
+function Home({ homeRef, logoRef, handleContact }) {
   const hi = "Hi,".split("");
   const I = "I'm".split("");
   const name = "urtaz,".split("");
@@ -29,13 +29,7 @@ function Home({ homeRef, logoRef }) {
       }, 1600);
     }
   };
-  const handleContact = () => {
-    const position = document.getElementById("contact").offsetTop - 120;
-    window.scrollTo({
-      left: 0,
-      top: position,
-    });
-  };
+
   return (
     <section className="home_cont" id="home">
       <div className="home_text">

@@ -10,6 +10,7 @@ export const CreateApiContext = ({ children }) => {
   const [light, setLight] = useState("light");
   const [inp, setInp] = useState(undefined);
   const [chose, setChose] = useState("All regions");
+
   useState(() => {
     setChose(localStorage.getItem("region"));
   }, []);

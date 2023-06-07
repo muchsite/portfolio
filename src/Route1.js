@@ -9,9 +9,9 @@ import SideBar from "./componenst/sideBar/SideBar";
 import { useRef, useEffect, useState } from "react";
 import Work from "./componenst/work/Work";
 import Scrollbar from "smooth-scrollbar";
-
+import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
 function Route1() {
-  const [position, setPosition] = useState();
+  const [position, setPosition] = useState("home");
   const homeRef = useRef();
   const aboutRef = useRef();
   const skillsRef = useRef();
@@ -63,7 +63,12 @@ function Route1() {
 
   useEffect(() => {
     if (window.matchMedia("(min-width: 1199px)").matches) {
-      const bar = Scrollbar.init(smoothRef.current);
+      Scrollbar.use(OverscrollPlugin);
+      const bar = Scrollbar.init(smoothRef.current, {
+        plugins: {
+          overscroll: "bounce",
+        },
+      });
       bar.addListener((staes) => {
         const offset = staes.offset.y;
         sidebarRef.current.style.top = offset + "px";
@@ -76,14 +81,12 @@ function Route1() {
     e.preventDefault();
     const id = e.currentTarget.getAttribute("href").slice(1);
     const bar = Scrollbar.get(smoothRef.current);
-    console.log("scroll");
-
     if (window.matchMedia("(min-width: 1199px)").matches) {
       if (id === "home") {
         bar.scrollTo(0, 0, 1000);
       }
       if (id === "contact") {
-        bar.scrollTo(0, 20000, 1000);
+        bar.scrollTo(0, 10000, 1000);
       }
       if (id === "about") {
         bar.scrollIntoView(aboutRef.current, { offsetTop: 220 });
@@ -104,6 +107,15 @@ function Route1() {
       });
     }
   };
+  const handleContact = () => {
+    const position = document.getElementById("contact").offsetTop - 120;
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+    const bar = Scrollbar.get(smoothRef.current);
+    bar.scrollTo(0, 10000, 1000);
+  };
   return (
     <main ref={smoothRef} id={`${compwive && "my-scrollbar"}`}>
       <SideBar
@@ -111,7 +123,12 @@ function Route1() {
         sidebarRef={sidebarRef}
         handleClick={handleClick}
       />
-      <Home homeRef={homeRef} position={position} logoRef={logoRef} />
+      <Home
+        homeRef={homeRef}
+        position={position}
+        logoRef={logoRef}
+        handleContact={handleContact}
+      />
       <About aboutRef={aboutRef} position={position} aboutRed={aboutRed} />
       <Skills skillsRef={skillsRef} position={position} />
       <Work workRef={workRef} position={position} />

@@ -45,12 +45,12 @@ function Work({ workRef, position }) {
             <p>Calculator app</p>
           </Link>
         </div>
-        {/* <div className={`${falseWork && "work_animation3"} work_item`}>
-          <Link to="/pages/api/" target="_blank">
+        <div className={`${falseWork && "work_animation3"} work_item`}>
+          <a href="https://muchsite.github.io/Sunnyside/" target="_blank">
             <img src={api} alt="" />
-            <p>REST Countries API with color theme switcher</p>
-          </Link>
-        </div> */}
+            <p>Sunnyside</p>
+          </a>
+        </div>
         <div className={`${falseWork && "work_animation4"} work_item`}>
           <Link to="/pages/landing" target="_blank">
             <img src={land} alt="" />
