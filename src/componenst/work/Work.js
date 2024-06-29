@@ -64,9 +64,9 @@ function Work({ workRef, position }) {
           </a>
         </div>
         <div className={`${falseWork && "work_animation6"} work_item`}>
-          <a href="https://muchsite-mern-app.onrender.com/" target="_blank">
+          <a href="https://muchsite.github.io/parallax/" target="_blank">
             <img src={templateImage} alt="" />
-            <p>Full Stack Web Application</p>
+            <p>Lineage</p>
           </a>
         </div>
       </div>
