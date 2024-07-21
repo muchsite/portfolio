@@ -35,7 +35,7 @@ function Contact({ contactRef, position }) {
     setSending(true);
     setSent(false);
     try {
-      const res2 = axios.post(
+      const res2 = await axios.post(
         "https://api.emailjs.com/api/v1.0/email/send",
         data
       );
