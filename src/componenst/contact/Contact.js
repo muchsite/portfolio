@@ -3,6 +3,7 @@ import "./contact.scss";
 import emailJs from "@emailjs/browser";
 import AnimateL from "../animate/AnimateL";
 import { useEffect } from "react";
+import axios from "axios";
 // import env from "dotenv";
 function Contact({ contactRef, position }) {
   const contArr = "Cntact Me".split("");
@@ -10,37 +11,44 @@ function Contact({ contactRef, position }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
-  const [content, setContent] = useState("");
+  const [message, setContent] = useState("");
   const form = useRef();
   const [falseContact, setFalseContact] = useState(false);
-  const test = () => {
-    if (
-      name.length > 1 &&
-      email.length > 1 &&
-      subject.length > 1 &&
-      content.length > 1
-    ) {
-      console.log({ name, email, subject, content });
-    }
-  };
-  const handleSubmit = (e) => {
+  const serviceID = process.env.REACT_APP_SERVICE_ID;
+  const templateID = process.env.REACT_APP_TEMPLATE;
+  const userID = process.env.REACT_APP_PYBLIC;
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailJs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE,
-        form.current,
-        process.env.REACT_APP_PYBLIC
-      )
-      .then(
-        (result) => {
-          alert("Message was successfully sent!");
-          window.location.reload(false);
-        },
-        (error) => {
-          alert("Something went wrong, please try again!");
-        }
+    const data = {
+      service_id: serviceID,
+      template_id: templateID,
+      user_id: userID,
+      template_params: {
+        name,
+        email,
+        subject,
+        message,
+      },
+    };
+    setSending(true);
+    setSent(false);
+    try {
+      const res2 = axios.post(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        data
       );
+      setSending(false);
+      setEmail("");
+      setContent("");
+      setName("");
+      setSubject("");
+      setSent(true);
+    } catch (error) {
+      // setSending(false);
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -70,13 +78,22 @@ function Contact({ contactRef, position }) {
             <ul>
               <div className="half_cont">
                 <li className={`${falseContact && "input_animation"} half`}>
-                  <input type="text" placeholder="Name" name="name" required />
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </li>
                 <li className={`${falseContact && "input_animation"} half`}>
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </li>
@@ -87,6 +104,8 @@ function Contact({ contactRef, position }) {
                   name="subject"
                   placeholder="Subject"
                   className="subject_input"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                   required
                 />
               </li>
@@ -96,12 +115,18 @@ function Contact({ contactRef, position }) {
                   placeholder="Message"
                   className="text_input"
                   required
+                  value={message}
+                  onChange={(e) => setContent(e.target.value)}
                 ></textarea>
               </li>
-              <li className={`${falseContact && "input_animation"}`}>
+              <li
+                className={`${falseContact && "input_animation"} loading_btn`}
+              >
                 <button className="contact_btn" type="submit">
                   Send
                 </button>
+                {sending ? <div className="loading"></div> : <></>}
+                {sent ? <p>Message has been sent!</p> : <></>}
               </li>
             </ul>
           </form>
